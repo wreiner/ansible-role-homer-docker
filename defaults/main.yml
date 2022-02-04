@@ -5,4 +5,4 @@ homer_docker__homer_version: "21.09.2"
 homer_docker__data_dir: "/var/lib/docker/volumes/homer"
 
 homer_docker__system_user: "nobody"
-homer_docker__system_group: "root"
+homer_docker__system_group: "nogroup"

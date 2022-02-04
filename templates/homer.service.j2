@@ -11,10 +11,11 @@ ExecStartPre=-/usr/bin/docker rm homer
 
 ExecStart=/usr/bin/docker run \
         -p {{ homer_docker__listen_address }}:33099:8080 \
+        -e "UID={{ homer_docker__system_user }}"
+        -e "GID={{ homer_docker__system_group }}"
         --name homer \
-        --user {{ homer_docker__system_user }}\
         -v {{ homer_docker__data_dir }}/assets:/www/assets \
-         {{ homer_docker__image }}:{{ homer_docker__homer_version }} \
+        {{ homer_docker__image }}:{{ homer_docker__homer_version }} \
 
 ExecStop=/usr/bin/docker stop -t 120 homer
 

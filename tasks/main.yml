@@ -4,6 +4,14 @@
     repo: "{{ homer_docker__assets_git_repo_url }}"
     dest: "{{ homer_docker__data_dir }}"
 
+- name: "Set permissions to assets directory"
+  file:
+    dest: "{{ homer_docker__data_dir }}"
+    owner: "{{ homer_docker__system_user }}"
+    group: "{{ homer_docker__system_group }}"
+    mode: "u=rwX,g=rX,o=rX"
+    recurse: yes
+
 - name: "Deploy homer service file"
   template:
     src: "homer.service.j2"
