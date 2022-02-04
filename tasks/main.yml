@@ -1,10 +1,8 @@
 ---
-- include_tasks: "preflight.yml"
-
 - name: "Checkout homer assets"
   ansible.builtin.git:
     repo: "{{ homer_docker__assets_git_repo_url }}"
-    dest: "{{ homer_docker__assets_dir }}"
+    dest: "{{ homer_docker__data_dir }}"
 
 - name: "Deploy homer service file"
   template:
