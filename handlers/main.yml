@@ -1,0 +1,7 @@
+---
+- name: "Restart homer"
+  systemd:
+    state: restarted
+    name: homer
+    daemon_reload: yes
+    enabled: yes

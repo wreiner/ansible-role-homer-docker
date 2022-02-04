@@ -1,0 +1,10 @@
+---
+- name: "Create additional homer directories"
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: "{{ homer_docker__system_user }}"
+    group: "{{ homer_docker__system_group }}"
+    mode: 0755
+  with_items:
+    - "{{ homer_docker__data_dir }}/assets"
